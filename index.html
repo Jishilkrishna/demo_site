@@ -268,6 +268,36 @@
   @media (max-width:880px){.why-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
 
+  /* ---------- Advertising ---------- */
+  .advertising{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .advertising-intro{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:end; margin-bottom:52px;}
+  .advertising-intro .section-head{margin-bottom:0;}
+  .advertising-intro-copy{color:var(--ink-soft); font-size:16px; line-height:1.75; max-width:58ch;}
+  .ad-services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .ad-service{background:var(--paper); padding:26px 24px 28px; min-height:176px; transition:transform .2s ease, background .2s ease;}
+  .ad-service:hover{transform:translateY(-3px); background:var(--white);}
+  .ad-service-icon{width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); background:var(--white); margin-bottom:20px;}
+  .ad-service-icon svg{width:19px; height:19px; stroke:var(--blue-600);}
+  .ad-service h3{font-size:16px; margin-bottom:8px; line-height:1.35;}
+  .ad-service p{font-size:13.5px; color:var(--ink-soft); line-height:1.6;}
+  .ad-lower{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-top:0;}
+  .ad-block{background:var(--white); padding:38px 36px 40px;}
+  .ad-block h3{font-size:19px; margin-bottom:14px;}
+  .ad-block > p{font-size:14.5px; color:var(--ink-soft); line-height:1.7; margin-bottom:22px;}
+  .ad-checks{display:grid; gap:11px;}
+  .ad-checks li{position:relative; padding-left:21px; font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .ad-checks li::before{content:'✓'; position:absolute; left:0; top:0; color:var(--blue-600); font-weight:700;}
+  .ad-clients{margin-top:42px; padding:30px 0 0; border-top:1px solid var(--line);}
+  .ad-clients-label{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:14px;}
+  .client-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .client-tags span{font-size:13px; color:var(--navy-950); border:1px solid var(--line); padding:8px 12px; background:var(--paper);}
+  .ad-vision{margin-top:1px; padding:38px 36px; background:var(--navy-950); color:var(--white); display:grid; grid-template-columns:.35fr 1fr; gap:30px; align-items:start;}
+  .ad-vision .eyebrow{color:var(--cyan-400);}
+  .ad-vision h3{font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3vw,34px); line-height:1.25; margin:0; color:var(--white);}
+  .ad-vision p{font-size:15px; line-height:1.75; color:#B9C8DA; max-width:70ch; margin-top:10px;}
+  @media (max-width:1000px){.ad-services-grid{grid-template-columns:1fr 1fr;}.advertising-intro{grid-template-columns:1fr; gap:20px;}.ad-lower{grid-template-columns:1fr;}}
+  @media (max-width:560px){.ad-services-grid{grid-template-columns:1fr;}.ad-block{padding:30px 24px;}.ad-vision{grid-template-columns:1fr; padding:30px 24px;}}
+
   /* ---------- Industries ---------- */
   .industries{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .industry-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
@@ -362,6 +392,7 @@
     <nav class="links" id="navLinks">
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#advertising">Advertising</a>
       <a href="#industries">Industries</a>
       <a href="#approach">Approach</a>
       <a href="#contact">Contact</a>
@@ -558,6 +589,50 @@
           <li>System monitoring</li>
           <li>IT consultation</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVERTISING -->
+  <section class="advertising pad" id="advertising">
+    <div class="wrap">
+      <div class="advertising-intro">
+        <div class="section-head">
+          <span class="eyebrow">Advertising &amp; Marketing</span>
+          <h2>Build visibility. Create connection. Drive growth.</h2>
+        </div>
+        <p class="advertising-intro-copy">We help businesses turn ideas into clear, compelling campaigns that reach the right audience through the right channels. From strategy and creative development to media execution and performance reporting, our advertising services are designed around your goals, audience, market position, and budget.</p>
+      </div>
+
+      <div class="ad-services-grid">
+        <div class="ad-service"><div class="ad-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 5h12l-2 4 2 4H4"/></svg></div><h3>Campaign Planning &amp; Management</h3><p>Plan, coordinate, launch, and manage campaigns from brief to completion.</p></div>
+        <div class="ad-service"><div class="ad-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17.5V6.5L12 3l8 3.5v11L12 21z"/><path d="M12 21V10M4 6.5l8 3.5 8-3.5"/></svg></div><h3>Brand Strategy &amp; Identity</h3><p>Shape brand positioning, identity, messaging, and a consistent market presence.</p></div>
+        <div class="ad-service"><div class="ad-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l7-7 4 4 5-6"/><path d="M15 10h5v5"/></svg></div><h3>Creative Design &amp; Copywriting</h3><p>Create persuasive visual and written content that makes campaigns memorable.</p></div>
+        <div class="ad-service"><div class="ad-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M7 8h10M7 12h6M9 19v2h6v-2"/></svg></div><h3>Digital &amp; Social Media</h3><p>Develop targeted online advertising and social-media campaigns that engage audiences.</p></div>
+        <div class="ad-service"><div class="ad-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V6M4 6h16M8 6v12M12 6v12M16 6v12M20 6v12"/></svg></div><h3>Media Planning &amp; Buying</h3><p>Select channels, placements, timing, and budgets to maximise campaign reach and efficiency.</p></div>
+        <div class="ad-service"><div class="ad-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h18M5 19V9l7-5 7 5v10"/><path d="M8 13h8M8 16h8"/></svg></div><h3>Integrated Advertising</h3><p>Outdoor, print, radio, television, and online advertising working together as one campaign.</p></div>
+        <div class="ad-service"><div class="ad-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Promotional Materials</h3><p>Develop brochures, presentations, corporate communications, and other brand materials.</p></div>
+        <div class="ad-service"><div class="ad-service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><h3>Research &amp; Performance</h3><p>Use market insight and campaign reporting to measure results and continuously improve.</p></div>
+      </div>
+
+      <div class="ad-lower">
+        <div class="ad-block">
+          <span class="eyebrow">Our approach</span>
+          <h3>From strategy to measurable results</h3>
+          <p>We begin by understanding each client’s audience, goals, market position, and budget. Our team then develops tailored concepts, selects the right channels, executes campaigns with precision, and tracks results to continuously improve performance.</p>
+          <ul class="ad-checks"><li>Audience, goal, and market analysis</li><li>Tailored campaign concepts and channel selection</li><li>Coordinated online and offline execution</li><li>Campaign tracking, reporting, and optimisation</li></ul>
+        </div>
+        <div class="ad-block">
+          <span class="eyebrow">Our clients</span>
+          <h3>Built for businesses at every stage</h3>
+          <p>We serve organisations across diverse industries, adapting our advertising strategy to their scale, audience, objectives, and market environment.</p>
+          <div class="client-tags"><span>Startups</span><span>SMEs</span><span>Established Companies</span><span>Government Entities</span><span>Retail</span><span>Hospitality</span><span>Real Estate</span><span>Other Industries</span></div>
+        </div>
+      </div>
+
+      <div class="ad-vision">
+        <div><span class="eyebrow">Our vision</span></div>
+        <div><h3>Creative excellence with measurable impact.</h3><p>To be a trusted advertising partner known for creative excellence, measurable impact, and long-term client success.</p></div>
       </div>
     </div>
   </section>
