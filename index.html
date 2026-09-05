@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Innovexa Systems W.L.L. provides IT infrastructure, hospitality technology, hardware, networking, security and advertising solutions across Bahrain and the GCC.">
+  <meta name="theme-color" content="#07172c">
+  <title>Innovexa Systems W.L.L. | Secure. Connect. Protect.</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons for consistent, accessible iconography -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg: #07172c; --bg2: #0a203a; --panel: #0b213d;
+      --text: #f3f6fa; --muted: #9baec2; --line: rgba(170,202,230,.16);
+      --cyan: #72d3ef; --blue: #3479c9; --max: 1220px;
+      --shadow: 0 22px 70px rgba(0,0,0,.24);
+    }
+    
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Manrope, Arial, sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, textarea { font: inherit; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: auto; }
+    
+    /* Typography */
+    .mono, .eyebrow, .hero-tag, .hero-card-label { font-family: 'DM Mono', monospace; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--cyan); margin-bottom: 14px; }
+    .eyebrow:before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 18px var(--cyan); }
+    h1, h2, h3, p { margin-top: 0; }
+    h2 { font-size: clamp(32px, 4vw, 54px); line-height: 1.08; letter-spacing: -.045em; margin-bottom: 16px; }
+    .section-copy { max-width: 620px; color: var(--muted); font-size: 16px; }
+    .pad { padding: 112px 0; }
+    .section-head { margin-bottom: 50px; }
+    .section-head h2 { max-width: 800px; }
+    
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 24px; border-radius: 5px; border: 1px solid transparent; font-weight: 700; font-size: 14px; transition: .25s transform, .25s background, .25s border-color; cursor: pointer;}
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, #2765a7, #438bd5); box-shadow: 0 10px 28px rgba(45,117,200,.25); }
+    .btn-ghost { border-color: rgba(180,210,235,.38); background: rgba(255,255,255,.025); }
+    
+    /* Header */
+    header { height: 82px; display: flex; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,23,44,.82); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.05); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; min-width: 260px; }
+    .brand-mark { width: 58px; height: 44px; display: flex; align-items: center; justify-content: center; }
+    .brand-mark img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(33,124,220,.22)); }
+    .brand-text strong { display: block; font-size: 15px; letter-spacing: .03em; }
+    .brand-text span { display: block; color: #82a7c2; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .09em; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: #d6e0e9; font-size: 14px; }
+    .nav-links a { position: relative; }
+    .nav-links a:after { content: ''; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px; background: var(--cyan); transform: scaleX(0); transition: .2s; }
+    .nav-links a:hover:after { transform: scaleX(1); }
+    .menu-btn { display: none; background: none; border: 0; color: #fff; cursor: pointer; padding: 8px;}
+    
+    /* Hero */
+    .hero { min-height: 860px; position: relative; isolation: isolate; overflow: hidden; padding-top: 82px; background: #07172c; }
+    .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .42; z-index: -3; }
+    .hero:before { content: ''; position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, #07172c 0%, rgba(7,23,44,.96) 33%, rgba(7,23,44,.72) 58%, rgba(7,23,44,.58) 100%), linear-gradient(0deg, #07172c 0%, transparent 35%); }
+    .hero:after { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 72% 34%, rgba(58,133,211,.13), transparent 27%); }
+    .hero-grid { min-height: 778px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 55px; align-items: center; }
+    .hero-copy { padding: 60px 0 38px; }
+    .hero-tag { font-size: 13px; letter-spacing: .06em; color: #80b5d1; display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+    .dot { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 16px var(--cyan); }
+    h1 { font-size: clamp(50px, 5.3vw, 77px); line-height: 1.08; letter-spacing: -.055em; max-width: 720px; margin-bottom: 22px; }
+    h1 em { font-style: normal; color: var(--cyan); }
+    .hero-sub { max-width: 660px; color: #afc0d0; font-size: 17px; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; margin: 32px 0 44px; }
+    .hero-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding-top: 25px; border-top: 1px solid var(--line); max-width: 720px; }
+    .num { display: block; font-family: 'DM Mono', monospace; font-size: 18px; font-weight: 500; }
+    .lbl { display: block; color: #8498ad; font-size: 12px; margin-top: 2px; }
+    .hero-side { display: flex; flex-direction: column; align-items: center; gap: 52px; padding-top: 35px; }
+    .hero-logo { width: min(100%, 520px); height: auto; display: block; filter: drop-shadow(0 16px 28px rgba(0,0,0,.42)); object-fit: contain; }
+    .hero-card { width: min(100%, 370px); padding: 31px 31px 27px; border: 1px solid rgba(130,190,232,.26); border-radius: 7px; background: rgba(7,23,44,.67); backdrop-filter: blur(12px); box-shadow: var(--shadow); }
+    .hero-card-label { font-size: 12px; letter-spacing: .08em; color: #7fb9d8; text-transform: uppercase; }
+    
+    .cover-list { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 17px; }
+    .cover-list li { display: flex; align-items: center; gap: 14px; color: #d9e2eb; font-size: 15px; }
+    .cover-list i { color: var(--cyan); flex: none; width: 20px; height: 20px; }
+    
+    /* Sections */
+    .about { background: linear-gradient(180deg, #07172c, #091c33); }
+    .about-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 75px; }
+    .about-copy p { color: var(--muted); font-size: 16px; }
+    .about-copy strong { color: #dce8f2; }
+    .vm-stack { display: grid; gap: 18px; }
+    .vm-card { padding: 29px 31px; border: 1px solid var(--line); border-radius: 7px; background: linear-gradient(135deg, rgba(255,255,255,.035), rgba(255,255,255,.012)); }
+    .vm-card h3 { font-size: 18px; margin-bottom: 9px; }
+    .vm-card p { color: var(--muted); margin: 0; font-size: 14px; }
+    
+    .services { background: #081a30; }
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .service-panel { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #0a1d34; transition: .3s transform, .3s border-color; }
+    .service-panel:hover { transform: translateY(-5px); border-color: rgba(112,210,239,.4); }
+    .service-photo { height: 220px; position: relative; overflow: hidden; }
+    .service-photo img { width: 100%; height: 100%; object-fit: cover; opacity: .75; transition: .5s transform; }
+    .service-panel:hover img { transform: scale(1.05); }
+    .service-photo:after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #0a1d34, transparent 70%); }
+    .service-icon { position: absolute; left: 25px; bottom: 18px; z-index: 1; width: 46px; height: 46px; border: 1px solid rgba(153,214,244,.35); background: rgba(7,23,44,.8); display: grid; place-items: center; border-radius: 6px; color: var(--cyan); }
+    .service-body { padding: 28px; }
+    .service-body h3 { font-size: 21px; line-height: 1.25; margin-bottom: 10px; }
+    .service-body p { color: var(--muted); font-size: 14px; }
+    .service-list { padding: 0; margin: 20px 0 0; list-style: none; columns: 2; gap: 24px; }
+    .service-list li { font-size: 13px; color: #b8c8d6; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.05); break-inside: avoid; }
+    
+    .managed, .advertising { background: #07172c; }
+    .split-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: center; }
+    .feature-image { height: 520px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid var(--line); }
+    .feature-image img { width: 100%; height: 100%; object-fit: cover; opacity: .76; }
+    .feature-image:after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(7,23,44,.05), rgba(7,23,44,.6)); }
+    .feature-copy p { color: var(--muted); }
+    .feature-list { list-style: none; padding: 0; margin: 25px 0 0; display: grid; gap: 12px; }
+    .feature-list li { padding: 13px 0; border-bottom: 1px solid var(--line); display: flex; gap: 14px; color: #d7e1e9; font-size: 14px; }
+    .feature-list li:before { content: '01'; font: 11px 'DM Mono', monospace; color: var(--cyan); }
+    .feature-list li:nth-child(2):before { content: '02'; }
+    .feature-list li:nth-child(3):before { content: '03'; }
+    .feature-list li:nth-child(4):before { content: '04'; }
+    .feature-list li:nth-child(5):before { content: '05'; }
+    
+    .why { background: linear-gradient(135deg, #0b2340, #07172c); }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+    .why-item { background: #091d35; padding: 30px; min-height: 200px; }
+    .why-item h3 { font-size: 18px; margin-bottom: 10px; }
+    .why-item p { font-size: 14px; color: var(--muted); margin: 0; }
+    
+    .industry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .industry-card { border: 1px solid var(--line); padding: 24px; min-height: 118px; border-radius: 6px; display: flex; gap: 15px; align-items: center; background: rgba(255,255,255,.018); transition: .25s; }
+    .industry-card:hover { border-color: rgba(111,208,238,.45); background: rgba(89,180,230,.05); }
+    .industry-card i { color: var(--cyan); flex: none; }
+    .industry-card span { font-size: 14px; font-weight: 700; }
+    
+    .approach { background: #091d35; }
+    .approach-row { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .approach-step { padding: 28px 22px 30px; border-right: 1px solid var(--line); }
+    .approach-step:last-child { border-right: 0; }
+    .step-num { font: 12px 'DM Mono', monospace; color: var(--cyan); }
+    .approach-step h4 { font-size: 18px; margin: 16px 0 7px; }
+    .approach-step p { font-size: 13px; color: var(--muted); margin: 0; }
+    
+    .commit { position: relative; overflow: hidden; text-align: center; background: radial-gradient(circle at center, rgba(54,125,199,.25), transparent 42%), #07172c; }
+    .commit blockquote { max-width: 980px; margin: 0 auto 20px; font-size: clamp(34px, 5vw, 65px); line-height: 1.15; letter-spacing: -.045em; font-weight: 700; }
+    .commit cite { font-style: normal; color: var(--cyan); font: 12px 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; }
+    
+    .contact { background: #081a30; }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; }
+    .contact-info, form { border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.018); padding: 32px; }
+    .contact-info h3 { font-size: 20px; }
+    .info-row { display: flex; gap: 15px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .info-row i { color: var(--cyan); flex: none; width: 20px; height: 20px; margin-top: 2px;}
+    .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #7991a8; }
+    .val { font-size: 14px; color: #d8e3ec; margin-top: 3px; }
+    .val a:hover { color: var(--cyan); }
+    
+    form { display: flex; flex-direction: column; gap: 17px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { font-size: 12px; color: #aebfce; display: block; margin-bottom: 7px; }
+    input, textarea { width: 100%; border: 1px solid rgba(160,195,220,.22); background: #07172c; color: #fff; border-radius: 5px; padding: 13px 14px; outline: none; }
+    input:focus, textarea:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(111,208,238,.08); }
+    textarea { min-height: 140px; resize: vertical; }
+    .form-note { font-size: 11px; color: #71879a; margin: 0; }
+    
+    footer { border-top: 1px solid var(--line); padding: 65px 0 25px; background: #061426; }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+    .footer-logo { width: min(100%, 260px); height: auto; display: block; margin-bottom: 14px; filter: drop-shadow(0 8px 18px rgba(0,0,0,.25)); }
+    .foot-brand p { color: #8296aa; font-size: 13px; max-width: 430px; margin-top: 16px; }
+    .foot-grid h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: #8fb5cf; }
+    .foot-grid ul { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; color: #b7c6d3; font-size: 13px; }
+    .foot-grid a:hover { color: var(--cyan); }
+    .foot-bottom { border-top: 1px solid var(--line); margin-top: 42px; padding-top: 22px; display: flex; justify-content: space-between; gap: 20px; color: #71869a; font-size: 11px; }
+    
+    @media(max-width: 900px) {
+      header { height: 72px; }
+      .brand { min-width: auto; }
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: #081a30; border-bottom: 1px solid var(--line); padding: 20px; flex-direction: column; align-items: flex-start; }
+      .nav-links.open { display: flex; }
+      .nav-cta { display: none; }
+      .menu-btn { display: block; }
+      .hero { padding-top: 72px; }
+      .hero-grid { grid-template-columns: 1fr; min-height: auto; padding: 60px 0 55px; }
+      .hero-side { padding: 0; gap: 25px; }
+      .hero-logo { max-width: 310px; }
+      .hero-card { max-width: 100%; }
+      .about-grid, .split-grid, .contact-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .industry-grid { grid-template-columns: 1fr 1fr; }
+      .approach-row { grid-template-columns: 1fr 1fr; }
+      .approach-step { border-bottom: 1px solid var(--line); }
+      .approach-step:nth-child(2) { border-right: 0; }
+      .form-row { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .foot-brand { grid-column: 1 / -1; }
+    }
+    @media(max-width: 560px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .pad { padding: 78px 0; }
+      .hero-facts { grid-template-columns: 1fr 1fr; }
+      .hero-copy { padding-top: 25px; }
+      .hero-actions { margin-bottom: 30px; }
+      .why-grid, .industry-grid { grid-template-columns: 1fr; }
+      .approach-row { grid-template-columns: 1fr; }
+      .approach-step { border-right: 0; }
+      .feature-image { height: 340px; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .foot-bottom { flex-direction: column; }
+      .brand-text strong { font-size: 13px; }
+      .brand-text span { font-size: 8px; }
+      .brand-mark { width: 50px; height: 38px; }
+      .nav .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Innovexa home">
+      <span class="brand-mark">
+        <!-- REPLACE "logo.png" WITH YOUR ACTUAL LOGO FILE -->
+        <img src="logo.png" alt="Innovexa Systems Logo">
+      </span>
+      <span class="brand-text">
+        <strong>INNOVEXA SYSTEMS</strong>
+        <span>SECURE · CONNECT · PROTECT</span>
+      </span>
+    </a>
+    
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#advertising">Advertising</a>
+      <a href="#industries">Industries</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    
+    <a href="#contact" class="btn btn-primary nav-cta">Request a quote</a>
+    <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <i data-lucide="menu"></i>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-photo" src="https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?auto=format&fit=crop&w=2400&q=85" alt="Technology infrastructure" fetchpriority="high">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="hero-tag"><span class="dot"></span>Bahrain-based · Est. 2026</div>
+        <h1>Technology infrastructure businesses can <em>depend on.</em></h1>
+        <p class="hero-sub">Innovexa Systems W.L.L. delivers dependable IT solutions, hospitality technology, hardware &amp; software, networking, security systems and business support across Bahrain and the GCC.</p>
+        
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Request a quote</a>
+          <a href="tel:+97332002111" class="btn btn-ghost">Call +973 3200 2111</a>
+        </div>
+        
+        <div class="hero-facts">
+          <div><span class="num">2026</span><span class="lbl">Established</span></div>
+          <div><span class="num">Manama, BH</span><span class="lbl">Headquarters</span></div>
+          <div><span class="num">4+</span><span class="lbl">Core service lines</span></div>
+          <div><span class="num">9+</span><span class="lbl">Industries served</span></div>
+        </div>
+      </div>
+      
+      <div class="hero-side">
+        <!-- REPLACE "logo.png" WITH YOUR ACTUAL LOGO FILE -->
+        <img class="hero-logo" src="logo.png" alt="Innovexa Systems W.L.L. logo">
+        <div class="hero-card">
+          <span class="hero-card-label">What we cover</span>
+          <ul class="cover-list">
+            <li><i data-lucide="building"></i> <span>Hospitality &amp; hotel IT</span></li>
+            <li><i data-lucide="monitor"></i> <span>Hardware &amp; software</span></li>
+            <li><i data-lucide="network"></i> <span>Networking &amp; infrastructure</span></li>
+            <li><i data-lucide="shield-check"></i> <span>Security systems</span></li>
+            <li><i data-lucide="megaphone"></i> <span>Publicity &amp; advertising</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about pad" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow">Company profile</span>
+        <h2>A technology partner built around business continuity.</h2>
+        <div class="about-copy">
+          <p><strong>Innovexa Systems W.L.L.</strong> is a Bahrain-based technology solutions provider delivering professional IT and security solutions for businesses across the Kingdom.</p>
+          <p>We specialise in hospitality IT, hardware and software, networking and technology infrastructure, security systems and related professional services — helping organisations improve operations, strengthen resilience and maintain continuity.</p>
+          <p>Our approach is simple: make technology reliable, secure, scalable and easy to manage.</p>
+        </div>
+      </div>
+      <div class="vm-stack">
+        <article class="vm-card">
+          <h3>Our vision</h3>
+          <p>To become a trusted technology partner in Bahrain and the GCC by delivering innovative, reliable and secure solutions that support business growth and digital transformation.</p>
+        </article>
+        <article class="vm-card">
+          <h3>Our mission</h3>
+          <p>To provide professional technology solutions that meet evolving business needs while maintaining high standards of quality, reliability, security and customer support.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="services pad" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Core services, designed to work together.</h2>
+        <p class="section-copy">From hotel networks to enterprise infrastructure, we deliver connected solutions from planning through implementation and support.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-panel">
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="Hospitality technology" loading="lazy">
+            <div class="service-icon"><i data-lucide="concierge-bell"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Hospitality IT Professional Services</h3>
+            <p>Technology designed for hotels, restaurants and hospitality operations.</p>
+            <ul class="service-list">
+              <li>Hotel IT infrastructure</li>
+              <li>Network design</li>
+              <li>Wi-Fi solutions</li>
+              <li>Server support</li>
+              <li>POS support</li>
+              <li>Property technology</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-panel">
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Computer hardware and software" loading="lazy">
+            <div class="service-icon"><i data-lucide="hard-drive"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>IT Hardware &amp; Software</h3>
+            <p>Practical sourcing, deployment and lifecycle support for business technology.</p>
+            <ul class="service-list">
+              <li>Business hardware</li>
+              <li>Software solutions</li>
+              <li>Workstations</li>
+              <li>Servers &amp; storage</li>
+              <li>Installation</li>
+              <li>Technical support</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-panel">
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" alt="Network infrastructure" loading="lazy">
+            <div class="service-icon"><i data-lucide="router"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Networking &amp; Infrastructure</h3>
+            <p>Scalable connectivity and infrastructure for modern business operations.</p>
+            <ul class="service-list">
+              <li>Network design</li>
+              <li>Structured cabling</li>
+              <li>Switching &amp; routing</li>
+              <li>Wireless networks</li>
+              <li>Server infrastructure</li>
+              <li>Infrastructure support</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-panel">
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80" alt="Security systems" loading="lazy">
+            <div class="service-icon"><i data-lucide="lock"></i></div>
+          </div>
+          <div class="service-body">
+            <h3>Security Systems</h3>
+            <p>Integrated physical and technology security designed around your environment.</p>
+            <ul class="service-list">
+              <li>CCTV systems</li>
+              <li>Access control</li>
+              <li>Network security</li>
+              <li>Security assessment</li>
+              <li>System integration</li>
+              <li>Maintenance &amp; support</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="managed pad">
+    <div class="wrap split-grid">
+      <div class="feature-image">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=80" alt="Managed IT services meeting" loading="lazy">
+      </div>
+      <div class="feature-copy">
+        <span class="eyebrow">Managed technology</span>
+        <h2>Support that continues after implementation.</h2>
+        <p>Technology only delivers value when it stays reliable. Innovexa can support your environment with responsive troubleshooting, maintenance and practical technical guidance.</p>
+        <ul class="feature-list">
+          <li>On-site and remote support</li>
+          <li>Preventive maintenance</li>
+          <li>Technology troubleshooting</li>
+          <li>Project coordination and delivery</li>
+          <li>IT consultancy and planning</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="advertising pad" id="advertising">
+    <div class="wrap split-grid">
+      <div class="feature-copy">
+        <span class="eyebrow">Publicity &amp; advertising</span>
+        <h2>Technology meets brand visibility.</h2>
+        <p>In addition to core technology services, we support businesses with practical publicity and advertising solutions that help brands communicate clearly and professionally.</p>
+        <ul class="feature-list">
+          <li>Digital and visual advertising support</li>
+          <li>Business promotion materials</li>
+          <li>Brand visibility solutions</li>
+          <li>Creative technology integration</li>
+          <li>Project-based campaign support</li>
+        </ul>
+      </div>
+      <div class="feature-image">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80" alt="Business advertising strategy" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="why pad">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why Innovexa</span>
+        <h2>Professional solutions. Clear accountability.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>Business-focused</h3>
+          <p>We begin with the operational need, then design technology around it.</p>
+        </div>
+        <div class="why-item">
+          <h3>End-to-end delivery</h3>
+          <p>From assessment and design to implementation, security and support.</p>
+        </div>
+        <div class="why-item">
+          <h3>Reliable support</h3>
+          <p>Practical help for maintaining and improving technology over time.</p>
+        </div>
+        <div class="why-item">
+          <h3>Long-term partnership</h3>
+          <p>Our goal is not simply to finish a project, but to build trust through dependable work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" id="industries">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who we serve</span>
+        <h2>Industries we work with.</h2>
+        <p class="section-copy">From single locations to multi-site operations, across Bahrain's key sectors.</p>
+      </div>
+      <div class="industry-grid">
+        <div class="industry-card"><i data-lucide="hotel"></i><span>Hotels &amp; Hospitality</span></div>
+        <div class="industry-card"><i data-lucide="utensils"></i><span>Restaurants &amp; F&amp;B</span></div>
+        <div class="industry-card"><i data-lucide="briefcase"></i><span>Corporate Offices</span></div>
+        <div class="industry-card"><i data-lucide="shopping-bag"></i><span>Retail Businesses</span></div>
+        <div class="industry-card"><i data-lucide="heart-pulse"></i><span>Healthcare</span></div>
+        <div class="industry-card"><i data-lucide="graduation-cap"></i><span>Educational Institutions</span></div>
+        <div class="industry-card"><i data-lucide="factory"></i><span>Commercial &amp; Industrial</span></div>
+        <div class="industry-card"><i data-lucide="building-2"></i><span>Properties &amp; Facilities</span></div>
+        <div class="industry-card"><i data-lucide="store"></i><span>Small &amp; Medium Businesses</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach pad" id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How we work</span>
+        <h2>A structured process behind every project.</h2>
+        <p class="section-copy">Assess → Design → Implement → Secure → Support.</p>
+      </div>
+      <div class="approach-row">
+        <article class="approach-step"><span class="step-num">01</span><h4>Assess</h4><p>Understand the business and technology requirements.</p></article>
+        <article class="approach-step"><span class="step-num">02</span><h4>Design</h4><p>Develop an appropriate and scalable solution.</p></article>
+        <article class="approach-step"><span class="step-num">03</span><h4>Implement</h4><p>Install, configure, integrate and test.</p></article>
+        <article class="approach-step"><span class="step-num">04</span><h4>Secure</h4><p>Apply appropriate measures and best practices.</p></article>
+        <article class="approach-step"><span class="step-num">05</span><h4>Support</h4><p>Provide ongoing technical support and maintenance.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="commit pad">
+    <div class="wrap">
+      <blockquote>“We don't just provide technology. We provide solutions that businesses can depend on.”</blockquote>
+      <cite>Innovexa Systems W.L.L.</cite>
+    </div>
+  </section>
+
+  <section class="contact pad" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Let's talk about your project.</h2>
+        <p class="section-copy">Tell us what you are working with and we'll come back with the right next steps.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact details</h3>
+          <div class="info-row">
+            <div><i data-lucide="map-pin"></i></div>
+            <div>
+              <div class="lbl">Business address</div>
+              <div class="val">Shop No. 1028, Building 15, Road 3801, Block 338, Alqudaybiyah, Manama, Kingdom of Bahrain</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div><i data-lucide="phone"></i></div>
+            <div>
+              <div class="lbl">Telephone</div>
+              <div class="val"><a href="tel:+97332002111">+973 3200 2111</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div><i data-lucide="mail"></i></div>
+            <div>
+              <div class="lbl">Email</div>
+              <div class="val"><a href="mailto:info@innovexabh.com">info@innovexabh.com</a></div>
+            </div>
+          </div>
+          <div class="info-row" style="border-bottom:0">
+            <div><i data-lucide="globe"></i></div>
+            <div>
+              <div class="lbl">Website</div>
+              <div class="val"><a href="https://www.innovexbh.com">www.innovexbh.com</a></div>
+            </div>
+          </div>
+        </div>
+        
+        <form id="quoteForm" action="#" method="post">
+          <div class="form-row">
+            <div>
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company">
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+          </div>
+          <div>
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" required placeholder="Tell us about your business, property or project..."></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" style="align-self:flex-start">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <!-- REPLACE "logo.png" WITH YOUR ACTUAL LOGO FILE -->
+        <img class="footer-logo" src="logo.png" alt="Innovexa Systems W.L.L. logo" loading="lazy">
+        <p>IT solutions, hospitality technology, hardware &amp; software, networking and security systems for businesses across Bahrain and the GCC.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#approach">Our approach</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@innovexabh.com">info@innovexabh.com</a></li>
+          <li><a href="tel:+97332002111">+973 3200 2111</a></li>
+          <li><a href="#contact">Manama, Bahrain</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Innovexa Systems W.L.L. All rights reserved.</span>
+      <span>Alqudaybiyah, Manama, Kingdom of Bahrain</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Initialize Lucide Icons
+  lucide.createIcons();
+
+  // Mobile Menu Logic
+  const menuBtn = document.getElementById('menuBtn'), navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  
+  // Fake Form Submission
+  document.getElementById('quoteForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const b = e.currentTarget.querySelector('button');
+    b.textContent = 'Message ready — connect backend';
+    setTimeout(() => b.textContent = 'Send message', 2500);
+  });
+</script>
+</body>
+</html>
